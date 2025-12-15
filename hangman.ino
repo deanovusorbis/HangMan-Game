@@ -91,7 +91,7 @@ void setup()
 	setNewGame();
 }
 
-void updateLetterFromJoystick()
+void updateLetterFromJoystick() // Update current letter based on joystick input
 {
 	// Read joystick X-axis
 	int xValue = analogRead(A0); // Read X-axis value
@@ -121,7 +121,7 @@ void updateLetterFromJoystick()
 	}
 }
 
-void drawCurrentLetter()
+void drawCurrentLetter() // Draw the currently selected letter on OLED
 {
 	display.clearDisplay();
 	display.setCursor(40, 16);
@@ -131,7 +131,7 @@ void drawCurrentLetter()
 	display.display();
 }
 
-bool isWordGuessed()
+bool isWordGuessed() // Check if the entire word has been guessed
 {
 	for (size_t i = 0; i < wordLength; i++)
 	{
