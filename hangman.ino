@@ -103,7 +103,7 @@ void updateLetterFromJoystick() // Update current letter based on joystick input
 				currentLetter = 'Z';
 			else // Move to previous letter
 				currentLetter--;
-			joyLocked = true;
+			joyLocked = true; // Lock joystick
 		}
 		else if (xValue > 700) // Move right
 		{
@@ -111,13 +111,13 @@ void updateLetterFromJoystick() // Update current letter based on joystick input
 				currentLetter = 'A';
 			else // Move to next letter
 				currentLetter++;
-			joyLocked = true;
+			joyLocked = true; // Lock joystick
 		}
 	}
 	else
 	{
 		if (xValue > 450 && xValue < 550)
-			joyLocked = false;
+			joyLocked = false; // Unlock joystick when centered
 	}
 }
 
@@ -125,7 +125,7 @@ void drawCurrentLetter() // Draw the currently selected letter on OLED
 {
 	display.clearDisplay();
 	display.setCursor(40, 16);
-	display.setTextSize(4);
+	display.setTextSize(4); 
 	display.setTextColor(SSD1306_WHITE);
 	display.print(currentLetter);
 	display.display();
@@ -133,12 +133,12 @@ void drawCurrentLetter() // Draw the currently selected letter on OLED
 
 bool isWordGuessed() // Check if the entire word has been guessed
 {
-	for (size_t i = 0; i < wordLength; i++)
+	for (size_t i = 0; i < wordLength; i++) // For each letter in the word
 	{
-		if (!openedLetters[i])
+		if (!openedLetters[i]) // If any letter is not opened, it's not fully guessed
 			return false;
 	}
-	return true;
+	return true; // All letters are opened
 }
 void loop()
 {
@@ -148,7 +148,7 @@ void loop()
 		lcd.clear();
 		lcd.setCursor(7, 1);
 		lcd.print("YOU WIN!");
-		lcd.setCursor(0, 3);
+		lcd.setCursor(0, 2);
 		lcd.print("Tap joystick to restart");
 		while (digitalRead(2) == LOW); // Wait for joystick release
 		while (digitalRead(2) == HIGH); // Wait for joystick press to restart
