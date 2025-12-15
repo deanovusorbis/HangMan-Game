@@ -222,7 +222,7 @@ void loop()
 		|
 		*/
 
-	case 3:
+	case 3:	
 		lcd.setCursor(17, 2);
 		lcd.print("/");
 		lcd.setCursor(19, 2);
@@ -249,6 +249,7 @@ void loop()
 		|/|\
 		|/ \
 		*/
+
 	case 5:
 		// Game over
 		joyLocked = true; // Lock joystick
@@ -260,6 +261,7 @@ void loop()
 		|/|\
 		|/ \
 		*/
+	
 		delay(1000);
 		lcd.clear();
 		lcd.setCursor(6, 1);
