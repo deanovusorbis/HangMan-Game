@@ -1,7 +1,7 @@
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-#include <Adafruit_SSD1306.h>
-#include <string.h>
+#include <Wire.h> // I2C library
+#include <LiquidCrystal_I2C.h> // LCD I2C library
+#include <Adafruit_SSD1306.h> // OLED library
+#include <string.h> // For strlen and strchr
 
 // Word list
 const char* words[] = {"CODE", "GAME", "ARRAY", "LOOP", "PIXEL", "SCREEN", "BUTTON", "PLAYER", "LEVEL", "LOGIC", "MEMORY", "OBJECT", "STRUCT", "POINTER", "RANDOM", "INPUT", "OUTPUT", "SIGNAL", "VECTOR", "NUMBER", "STRING", "TARGET", "SPRITE", "ACTION", "ENGINE"}; 
