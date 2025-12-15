@@ -3,7 +3,7 @@
 #include <Adafruit_SSD1306.h> // OLED library
 #include <string.h> // For strlen and strchr
 
-// Word list
+// Word list (We have limited space, so we kept it short and simple)
 const char* words[] = {"CODE", "GAME", "ARRAY", "LOOP", "PIXEL", "SCREEN", "BUTTON", "PLAYER", "LEVEL", "LOGIC", "MEMORY", "OBJECT", "STRUCT", "POINTER", "RANDOM", "INPUT", "OUTPUT", "SIGNAL", "VECTOR", "NUMBER", "STRING", "TARGET", "SPRITE", "ACTION", "ENGINE"}; 
 
 // Game variables
@@ -13,11 +13,11 @@ int wordLength; // Length of the selected word
 int wrongGuesses = 0; // Number of wrong guesses
 char currentLetter = 'A'; // Currently selected letter
 bool joyLocked = false; // Joystick lock to prevent rapid changes
-bool openedLetters[8]; // Track opened letters (max word length 7 and a null terminator equals 8)
+bool openedLetters[8]; // Track opened letters (max word length 7 and a null terminator equals 8) (i know it's not dynamic but it's fine for this project)
 bool usedLetters[26]; // Track used letters
 
 // LCD and OLED initialization
-LiquidCrystal_I2C lcd(0x27, 20, 4); // LCD I2C address 0x27, 20 columns, 4 rows
+LiquidCrystal_I2C lcd(0x3F, 20, 4); // LCD I2C address 0x3F, 20 columns, 4 rows
 Adafruit_SSD1306 display(128, 64, &Wire); // OLED display 128x64
 
 void setNewGame() // Function to set up a new game
@@ -73,10 +73,10 @@ void setNewGame() // Function to set up a new game
 void setup()
 {
 	// Initilize pins
-	pinMode(2, INPUT_PULLUP); // for joystick button 
+	pinMode(2, INPUT_PULLUP); // For joystick button 
 
 	// For random
-	randomSeed(analogRead(A1));
+	randomSeed(analogRead(A1)); // Seed random number generator
 
 	// LCD setup
 	lcd.init(); // Initialize the LCD
